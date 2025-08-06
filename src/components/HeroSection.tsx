@@ -11,7 +11,7 @@ export const HeroSection = () => {
         {/* Content */}
         <div className="space-y-8 animate-fade-in">
           <div className="space-y-4">
-            <div className="inline-flex items-center bg-arak-blue-light text-primary px-4 py-2 rounded-full text-sm font-medium">
+            <div className="inline-flex items-center bg-arak-blue-light text-primary px-4 py-2 rounded-full text-xs font-medium">
               <Zap className="h-4 w-4 mr-2" />
               Libya's Leading IT Partner
             </div>
