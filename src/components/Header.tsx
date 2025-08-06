@@ -22,6 +22,9 @@ export const Header = () => {
         </nav>
         
         <div className="flex items-center space-x-4">
+          <a href="/ar" className="text-sm text-foreground hover:text-primary transition-colors">
+            العربية
+          </a>
           <Button variant="outline" className="hidden sm:inline-flex">
             Get Quote
           </Button>
