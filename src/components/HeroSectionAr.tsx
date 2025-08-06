@@ -16,40 +16,40 @@ export const HeroSectionAr = () => {
               الشريك التقني الرائد في ليبيا
             </div>
             
-            <h1 className="text-4xl md:text-6xl font-bold text-foreground leading-tight">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
               خدمات الاتصالات و
-              <span className="text-transparent bg-clip-text bg-gradient-primary"> تكنولوجيا المعلومات</span>
-              <br />الشاملة في ليبيا
+              <span className="text-transparent bg-clip-text bg-gradient-primary"> تكنولوجيا المعلومات </span>
+              الشاملة في ليبيا
             </h1>
             
-            <p className="text-xl text-muted-foreground max-w-2xl">
+            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed">
               تقدم ARAK حلول الخدمات المدارة والبنية التحتية والأمن السيبراني على مستوى المؤسسات. 
               ركز على عملك بينما نتولى نحن جميع احتياجات تكنولوجيا المعلومات مع ضمان وقت تشغيل 99.9999%.
             </p>
           </div>
           
           <div className="flex flex-col sm:flex-row gap-4">
-            <Button size="lg" className="bg-gradient-primary text-primary-foreground shadow-elevated group">
+            <Button size="lg" className="bg-gradient-primary text-primary-foreground shadow-elevated group px-8 py-3">
               ابدأ معنا اليوم
               <ArrowRight className="mr-2 h-5 w-5 group-hover:-translate-x-1 transition-transform rotate-180" />
             </Button>
-            <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
+            <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-3">
               شاهد خدماتنا
             </Button>
           </div>
           
           {/* Stats */}
-          <div className="grid grid-cols-3 gap-6 pt-8 border-t border-border">
+          <div className="grid grid-cols-3 gap-8 pt-8 border-t border-border">
             <div className="text-center">
-              <div className="text-2xl font-bold text-primary">99.9999%</div>
+              <div className="text-2xl md:text-3xl font-bold text-primary mb-1">99.9999%</div>
               <div className="text-sm text-muted-foreground">ضمان وقت التشغيل</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-bold text-primary">24/7</div>
+              <div className="text-2xl md:text-3xl font-bold text-primary mb-1">24/7</div>
               <div className="text-sm text-muted-foreground">دعم فني متخصص</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-bold text-primary">500+</div>
+              <div className="text-2xl md:text-3xl font-bold text-primary mb-1">500+</div>
               <div className="text-sm text-muted-foreground">مشروع منجز</div>
             </div>
           </div>

@@ -18,11 +18,11 @@ export const AboutSectionAr = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
           <div className="space-y-8">
-            <div className="space-y-4">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+            <div className="space-y-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground leading-tight">
                 لماذا تختار <span className="text-primary">ARAK</span>؟
               </h2>
-              <p className="text-lg text-muted-foreground leading-relaxed">
+              <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl">
                 ARAK هي شركة تقنية ليبية تقدم خدمات الاتصالات وتكنولوجيا المعلومات الشاملة — مع تخصص أساسي في الخدمات المدارة (MSP) لمساعدة الشركات على التركيز في عملياتها بينما نتولى نحن جميع احتياجات تكنولوجيا المعلومات.
               </p>
             </div>
