@@ -1,13 +1,13 @@
 export const PartnersSection = () => {
   const partners = [
-    { name: "HPE", description: "Enterprise Infrastructure" },
-    { name: "Dell", description: "Computing Solutions" },
-    { name: "Cisco", description: "Networking Technology" },
-    { name: "Fortinet", description: "Cybersecurity" },
-    { name: "Huawei", description: "Telecommunications" },
-    { name: "ZTE", description: "Communication Equipment" },
-    { name: "Microsoft", description: "Cloud & Productivity" },
-    { name: "VMware", description: "Virtualization" }
+    { name: "HPE", description: "Enterprise Infrastructure", logo: "/partners/hpe.svg", alt: "HPE logo" },
+    { name: "Dell", description: "Computing Solutions", logo: "/partners/dell.svg", alt: "Dell logo" },
+    { name: "Cisco", description: "Networking Technology", logo: "/partners/cisco.svg", alt: "Cisco logo" },
+    { name: "Fortinet", description: "Cybersecurity", logo: "/partners/fortinet.svg", alt: "Fortinet logo" },
+    { name: "Huawei", description: "Telecommunications", logo: "/partners/huawei.svg", alt: "Huawei logo" },
+    { name: "ZTE", description: "Communication Equipment", logo: "/partners/zte.svg", alt: "ZTE logo" },
+    { name: "Microsoft", description: "Cloud & Productivity", logo: "/partners/microsoft.svg", alt: "Microsoft logo" },
+    { name: "VMware", description: "Virtualization", logo: "/partners/vmware.svg", alt: "VMware logo" }
   ];
 
   return (
@@ -30,9 +30,7 @@ export const PartnersSection = () => {
               className="group bg-gradient-card rounded-xl p-6 text-center hover:shadow-arak transition-all duration-300 hover:-translate-y-1 border border-border/50"
             >
               <div className="h-20 bg-muted rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/10 transition-colors">
-                <div className="text-lg font-bold text-muted-foreground group-hover:text-primary transition-colors">
-                  {partner.name}
-                </div>
+                <img src={partner.logo} alt={partner.alt} loading="lazy" className="h-12 w-auto object-contain" />
               </div>
               <h3 className="font-semibold text-foreground mb-2">{partner.name}</h3>
               <p className="text-sm text-muted-foreground">{partner.description}</p>
