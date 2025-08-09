@@ -7,7 +7,7 @@ export const HeaderAr = () => {
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         <div className="flex items-center space-x-2 space-x-reverse">
           <img 
-            src="/lovable-uploads/c508bc46-50e9-4597-82ec-7fa0ab0c2307.png" 
+            src="/lovable-uploads/d836918e-2dff-4093-ba9f-226fc5ac4989.png" 
             alt="ARAK للاتصالات وخدمات تكنولوجيا المعلومات" 
             className="h-10 w-auto"
           />

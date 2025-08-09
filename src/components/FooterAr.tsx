@@ -10,9 +10,11 @@ export const FooterAr = () => {
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
               <img 
-                src="/lovable-uploads/c508bc46-50e9-4597-82ec-7fa0ab0c2307.png" 
-                alt="ARAK للاتصالات وخدمات تكنولوجيا المعلومات" 
-                className="h-10 w-auto brightness-0 invert"
+                src="/lovable-uploads/0edc19b0-8d22-4f4c-8d24-6e6a5fd105a5.png" 
+                alt="شعار ARAK (أبيض) - للاتصالات وخدمات تكنولوجيا المعلومات" 
+                className="h-10 w-auto"
+                loading="lazy"
+                decoding="async"
               />
             </div>
             <p className="text-white/80 text-sm leading-relaxed">

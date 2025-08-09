@@ -8,9 +8,11 @@ export const Footer = () => {
           {/* Company Info */}
           <div className="space-y-4">
             <img 
-              src="/lovable-uploads/c508bc46-50e9-4597-82ec-7fa0ab0c2307.png" 
-              alt="ARAK" 
-              className="h-12 w-auto brightness-0 invert"
+              src="/lovable-uploads/0edc19b0-8d22-4f4c-8d24-6e6a5fd105a5.png" 
+              alt="ARAK logo (white) - Communications & IT Services" 
+              className="h-12 w-auto"
+              loading="lazy"
+              decoding="async"
             />
             <p className="text-gray-300 text-sm leading-relaxed">
               Libya's leading Communication & IT Services company. We deliver enterprise-grade 
