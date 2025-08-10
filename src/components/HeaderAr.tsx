@@ -9,7 +9,7 @@ export const HeaderAr = () => {
           <img 
             src="/lovable-uploads/d836918e-2dff-4093-ba9f-226fc5ac4989.png" 
             alt="ARAK للاتصالات وخدمات تكنولوجيا المعلومات" 
-            className="h-14 w-auto"
+            className="h-20 w-auto"
           />
         </div>
         

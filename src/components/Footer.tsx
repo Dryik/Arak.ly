@@ -10,7 +10,7 @@ export const Footer = () => {
             <img 
               src="/lovable-uploads/0edc19b0-8d22-4f4c-8d24-6e6a5fd105a5.png" 
               alt="ARAK logo (white) - Communications & IT Services" 
-              className="h-16 w-auto"
+              className="h-24 w-auto"
               loading="lazy"
               decoding="async"
             />
