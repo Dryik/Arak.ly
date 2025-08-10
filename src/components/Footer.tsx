@@ -8,7 +8,7 @@ export const Footer = () => {
           {/* Company Info */}
           <div className="space-y-4">
             <img 
-              src="/lovable-uploads/0edc19b0-8d22-4f4c-8d24-6e6a5fd105a5.png" 
+              src="/lovable-uploads/e0b5ad18-da21-4474-8389-2ac588a27ccc.png" 
               alt="ARAK logo (white) - Communications & IT Services" 
               className="h-24 w-auto"
               loading="lazy"
