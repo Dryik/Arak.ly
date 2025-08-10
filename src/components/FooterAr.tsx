@@ -12,7 +12,7 @@ export const FooterAr = () => {
               <img 
                 src="/lovable-uploads/0edc19b0-8d22-4f4c-8d24-6e6a5fd105a5.png" 
                 alt="شعار ARAK (أبيض) - للاتصالات وخدمات تكنولوجيا المعلومات" 
-                className="h-10 w-auto"
+                className="h-14 w-auto"
                 loading="lazy"
                 decoding="async"
               />
