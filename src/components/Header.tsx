@@ -28,8 +28,10 @@ export const Header = () => {
           <Button variant="outline" className="hidden sm:inline-flex">
             Get Quote
           </Button>
-          <Button className="bg-gradient-primary text-primary-foreground shadow-arak">
-            Talk to Expert
+          <Button asChild className="bg-gradient-primary text-primary-foreground shadow-arak">
+            <a href="https://wa.me/218914842885" target="_blank" rel="noopener noreferrer" aria-label="Chat with ARAK expert on WhatsApp">
+              Talk to Expert
+            </a>
           </Button>
           <Button variant="ghost" size="icon" className="md:hidden">
             <Menu className="h-5 w-5" />

@@ -19,12 +19,12 @@ export const Footer = () => {
               solutions with 99.9999% uptime guarantee.
             </p>
             <div className="flex space-x-4">
-              <div className="h-8 w-8 bg-white/10 rounded-lg flex items-center justify-center hover:bg-primary transition-colors cursor-pointer">
+              <a href="https://www.facebook.com/profile.php?id=61579130677510" target="_blank" rel="noopener noreferrer" aria-label="ARAK on Facebook" className="h-8 w-8 bg-white/10 rounded-lg flex items-center justify-center hover:bg-primary transition-colors">
                 <span className="text-xs font-bold">f</span>
-              </div>
-              <div className="h-8 w-8 bg-white/10 rounded-lg flex items-center justify-center hover:bg-primary transition-colors cursor-pointer">
+              </a>
+              <a href="https://www.linkedin.com/company/arak-for-communication-information-technology" target="_blank" rel="noopener noreferrer" aria-label="ARAK on LinkedIn" className="h-8 w-8 bg-white/10 rounded-lg flex items-center justify-center hover:bg-primary transition-colors">
                 <span className="text-xs font-bold">in</span>
-              </div>
+              </a>
               <div className="h-8 w-8 bg-white/10 rounded-lg flex items-center justify-center hover:bg-primary transition-colors cursor-pointer">
                 <span className="text-xs font-bold">@</span>
               </div>

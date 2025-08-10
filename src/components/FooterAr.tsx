@@ -21,7 +21,7 @@ export const FooterAr = () => {
               ARAK هي شركة تقنية ليبية رائدة تقدم خدمات الاتصالات وتكنولوجيا المعلومات الشاملة مع ضمان وقت تشغيل 99.9999%.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-white/60 hover:text-primary transition-colors">
+              <a href="https://www.facebook.com/profile.php?id=61579130677510" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-primary transition-colors">
                 <Facebook className="h-5 w-5" />
               </a>
               <a href="#" className="text-white/60 hover:text-primary transition-colors">

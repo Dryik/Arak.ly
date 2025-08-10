@@ -28,8 +28,10 @@ export const HeaderAr = () => {
           <Button variant="outline" className="hidden sm:inline-flex">
             احصل على عرض سعر
           </Button>
-          <Button className="bg-gradient-primary text-primary-foreground shadow-arak">
-            تحدث مع خبير
+          <Button asChild className="bg-gradient-primary text-primary-foreground shadow-arak">
+            <a href="https://wa.me/218914842885" target="_blank" rel="noopener noreferrer" aria-label="تحدث مع خبير عبر واتساب">
+              تحدث مع خبير
+            </a>
           </Button>
           <Button variant="ghost" size="icon" className="md:hidden">
             <Menu className="h-5 w-5" />
