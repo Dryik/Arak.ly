@@ -30,7 +30,20 @@ export const HeroSection = () => {
           
           <div className="flex flex-col sm:flex-row gap-4">
             <Button asChild size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
-              <a href="#services" className="inline-flex items-center">
+              <a
+                href="#services"
+                className="inline-flex items-center"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const el = document.getElementById('services');
+                  if (el) {
+                    const y = el.getBoundingClientRect().top + window.scrollY - 80;
+                    window.history.pushState(null, "", "#services");
+                    window.scrollTo({ top: y, behavior: "smooth" });
+                  }
+                }}
+                aria-label="View our services section"
+              >
                 View Our Services
               </a>
             </Button>
