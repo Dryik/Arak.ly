@@ -29,12 +29,10 @@ export const HeroSection = () => {
           </div>
           
           <div className="flex flex-col sm:flex-row gap-4">
-            <Button size="lg" className="bg-gradient-primary text-primary-foreground shadow-elevated group">
-              Get Started Today
-              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
-            <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
-              View Our Services
+            <Button asChild size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
+              <a href="#services" className="inline-flex items-center">
+                View Our Services
+              </a>
             </Button>
           </div>
           

@@ -29,12 +29,10 @@ export const HeroSectionAr = () => {
           </div>
           
           <div className="flex flex-col sm:flex-row gap-4">
-            <Button size="lg" className="bg-gradient-primary text-primary-foreground shadow-elevated group px-8 py-3">
-              ابدأ معنا اليوم
-              <ArrowRight className="mr-2 h-5 w-5 group-hover:-translate-x-1 transition-transform rotate-180" />
-            </Button>
-            <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-3">
-              شاهد خدماتنا
+            <Button asChild size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-3">
+              <a href="#services" className="inline-flex items-center">
+                شاهد خدماتنا
+              </a>
             </Button>
           </div>
           
