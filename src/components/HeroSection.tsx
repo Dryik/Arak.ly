@@ -5,7 +5,7 @@ export const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center pt-16">
       {/* Background Gradient */}
-      <div className="absolute inset-0 bg-gradient-hero opacity-5"></div>
+      <div className="absolute inset-0 bg-gradient-hero opacity-5 pointer-events-none"></div>
       
       <div className="container mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">
         {/* Content */}
