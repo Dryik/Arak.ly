@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
 
 export const HeaderAr = () => {
@@ -33,9 +34,35 @@ export const HeaderAr = () => {
               تحدث مع خبير
             </a>
           </Button>
-          <Button variant="ghost" size="icon" className="md:hidden">
-            <Menu className="h-5 w-5" />
-          </Button>
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="icon" className="md:hidden">
+                <Menu className="h-5 w-5" />
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="left" className="w-[300px] sm:w-[400px]" dir="rtl">
+              <nav className="flex flex-col gap-4 mt-8">
+                <a href="#about" className="text-foreground hover:text-primary transition-colors text-lg">من نحن</a>
+                <a href="#services" className="text-foreground hover:text-primary transition-colors text-lg">خدماتنا</a>
+                <a href="#industries" className="text-foreground hover:text-primary transition-colors text-lg">القطاعات</a>
+                <a href="#partners" className="text-foreground hover:text-primary transition-colors text-lg">شركاؤنا</a>
+                <a href="#contact" className="text-foreground hover:text-primary transition-colors text-lg">اتصل بنا</a>
+                <div className="flex flex-col gap-4 mt-8">
+                  <a href="/" className="text-sm text-foreground hover:text-primary transition-colors">
+                    English
+                  </a>
+                  <Button variant="outline">
+                    احصل على عرض سعر
+                  </Button>
+                  <Button asChild className="bg-gradient-primary text-primary-foreground shadow-arak">
+                    <a href="https://wa.me/218914842885" target="_blank" rel="noopener noreferrer" aria-label="تحدث مع خبير عبر واتساب">
+                      تحدث مع خبير
+                    </a>
+                  </Button>
+                </div>
+              </nav>
+            </SheetContent>
+          </Sheet>
         </div>
       </div>
     </header>

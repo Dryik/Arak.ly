@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
 
 export const Header = () => {
@@ -33,9 +34,35 @@ export const Header = () => {
               Talk to Expert
             </a>
           </Button>
-          <Button variant="ghost" size="icon" className="md:hidden">
-            <Menu className="h-5 w-5" />
-          </Button>
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="icon" className="md:hidden">
+                <Menu className="h-5 w-5" />
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+              <nav className="flex flex-col gap-4 mt-8">
+                <a href="#about" className="text-foreground hover:text-primary transition-colors text-lg">About</a>
+                <a href="#services" className="text-foreground hover:text-primary transition-colors text-lg">Services</a>
+                <a href="#industries" className="text-foreground hover:text-primary transition-colors text-lg">Industries</a>
+                <a href="#partners" className="text-foreground hover:text-primary transition-colors text-lg">Partners</a>
+                <a href="#contact" className="text-foreground hover:text-primary transition-colors text-lg">Contact</a>
+                <div className="flex flex-col gap-4 mt-8">
+                  <a href="/ar" className="text-sm text-foreground hover:text-primary transition-colors">
+                    العربية
+                  </a>
+                  <Button variant="outline">
+                    Get Quote
+                  </Button>
+                  <Button asChild className="bg-gradient-primary text-primary-foreground shadow-arak">
+                    <a href="https://wa.me/218914842885" target="_blank" rel="noopener noreferrer" aria-label="Chat with ARAK expert on WhatsApp">
+                      Talk to Expert
+                    </a>
+                  </Button>
+                </div>
+              </nav>
+            </SheetContent>
+          </Sheet>
         </div>
       </div>
     </header>
