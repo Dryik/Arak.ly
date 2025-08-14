@@ -134,7 +134,7 @@ export const ContactSection = () => {
                     name="phone"
                     value={form.phone}
                     onChange={handleChange}
-                    placeholder="+218 XXX XXX XXX"
+                    placeholder="+218 91 484 2885"
                     className="border-border focus:border-primary"
                   />
                 </div>
@@ -184,8 +184,8 @@ export const ContactSection = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-foreground">Phone</h4>
-                    <p className="text-muted-foreground">+218 XXX XXX XXX</p>
-                    <p className="text-muted-foreground">+218 XXX XXX XXX</p>
+                    <p className="text-muted-foreground">+218 91 484 2885</p>
+                    <p className="text-muted-foreground">+218 92 781 8080</p>
                   </div>
                 </div>
 

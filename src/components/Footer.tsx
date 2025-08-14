@@ -157,11 +157,16 @@ export const Footer = () => {
               </div>
               <div>
                 <p className="font-medium text-white">Phone</p>
-                <p>+218 XXX XXX XXX</p>
+                <p>+218 91 484 2885</p>
+                <p>+218 92 781 8080</p>
               </div>
               <div>
                 <p className="font-medium text-white">Location</p>
-                <p>Tripoli, Libya</p>
+                <p>جنزور الشرقية بالقرب من جزيرة أبو صوفة ، مبنى رقم 15</p>
+                <p>الطابق الثالث، طرابلس - ليبيا</p>
+                <p>Eastern Janzour, near Abu Soufa Roundabout</p>
+                <p>Building No. 15, Third Floor, Tripoli - Libya</p>
+                <p>www.arak.ly</p>
               </div>
               <div>
                 <p className="font-medium text-white">Support</p>

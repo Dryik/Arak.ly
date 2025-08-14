@@ -120,7 +120,7 @@ export const ContactSectionAr = () => {
                     name="phone"
                     value={form.phone}
                     onChange={handleChange}
-                    placeholder="+218 XX XXX XXXX"
+                    placeholder="+218 91 484 2885"
                     className="bg-background/50"
                   />
                 </div>
@@ -159,8 +159,8 @@ export const ContactSectionAr = () => {
                     <Phone className="h-5 w-5 text-primary mt-1 ml-4" />
                     <div>
                       <p className="font-medium text-foreground">الهاتف</p>
-                      <p className="text-muted-foreground">+218 XX XXX XXXX</p>
-                      <p className="text-muted-foreground">+218 XX XXX XXXX</p>
+                      <p className="text-muted-foreground">+218 91 484 2885</p>
+                      <p className="text-muted-foreground">+218 92 781 8080</p>
                     </div>
                   </div>
 
@@ -177,7 +177,16 @@ export const ContactSectionAr = () => {
                     <MapPin className="h-5 w-5 text-primary mt-1 ml-4" />
                     <div>
                       <p className="font-medium text-foreground">الموقع</p>
-                      <p className="text-muted-foreground">طرابلس، ليبيا</p>
+                      <p className="text-muted-foreground">
+                        جنزور الشرقية بالقرب من جزيرة أبو صوفة ، مبنى رقم 15
+                      </p>
+                      <p className="text-muted-foreground">الطابق الثالث، طرابلس - ليبيا</p>
+                      <p className="text-muted-foreground">
+                        Eastern Janzour, near Abu Soufa Roundabout
+                      </p>
+                      <p className="text-muted-foreground">
+                        Building No. 15, Third Floor, Tripoli - Libya
+                      </p>
                     </div>
                   </div>
 
