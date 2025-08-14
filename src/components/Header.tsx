@@ -6,6 +6,7 @@ import { NavLink, Link, useLocation } from 'react-router-dom';
 export const Header = () => {
   const [open, setOpen] = useState(false);
   const location = useLocation();
+
   // Scroll to contact section
   const handleGetQuote = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -14,6 +15,26 @@ export const Header = () => {
       el.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
+  // Handle clicks on header anchor links that use Link (e.g. '/#about')
+  const handleAnchorClick = (e: React.MouseEvent, to: string) => {
+    const [path, hash] = to.split('#');
+    const targetPath = path || '/';
+    if (targetPath === location.pathname) {
+      // same page: prevent Link navigation and scroll directly
+      e.preventDefault();
+      const id = (hash || '').replace('#', '');
+      if (id) {
+        const el = document.getElementById(id);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }
+      setOpen(false);
+    } else {
+      // different page: let the Link navigate, mobile menu should close on navigation
+      setOpen(false);
+    }
+  };
+
   return (
     <>
       <a
@@ -35,6 +56,7 @@ export const Header = () => {
           <nav className="hidden md:flex items-center space-x-8">
             <Link
               to={'/#about'}
+              onClick={(e) => handleAnchorClick(e, '/#about')}
               className={`text-foreground hover:text-primary transition-colors ${
                 location.hash === '#about' ? 'text-primary' : ''
               }`}
@@ -43,6 +65,7 @@ export const Header = () => {
             </Link>
             <Link
               to={'/#services'}
+              onClick={(e) => handleAnchorClick(e, '/#services')}
               className={`text-foreground hover:text-primary transition-colors ${
                 location.hash === '#services' ? 'text-primary' : ''
               }`}
@@ -51,6 +74,7 @@ export const Header = () => {
             </Link>
             <Link
               to={'/#industries'}
+              onClick={(e) => handleAnchorClick(e, '/#industries')}
               className={`text-foreground hover:text-primary transition-colors ${
                 location.hash === '#industries' ? 'text-primary' : ''
               }`}
@@ -59,6 +83,7 @@ export const Header = () => {
             </Link>
             <Link
               to={'/#partners'}
+              onClick={(e) => handleAnchorClick(e, '/#partners')}
               className={`text-foreground hover:text-primary transition-colors ${
                 location.hash === '#partners' ? 'text-primary' : ''
               }`}
@@ -67,6 +92,7 @@ export const Header = () => {
             </Link>
             <Link
               to={'/#contact'}
+              onClick={(e) => handleAnchorClick(e, '/#contact')}
               className={`text-foreground hover:text-primary transition-colors ${
                 location.hash === '#contact' ? 'text-primary' : ''
               }`}
@@ -114,35 +140,35 @@ export const Header = () => {
               <nav className="flex flex-col gap-4 mt-2">
                 <Link
                   to={'/#about'}
-                  onClick={() => setOpen(false)}
+                  onClick={(e) => handleAnchorClick(e, '/#about')}
                   className="text-foreground hover:text-primary transition-colors text-lg"
                 >
                   About
                 </Link>
                 <Link
                   to={'/#services'}
-                  onClick={() => setOpen(false)}
+                  onClick={(e) => handleAnchorClick(e, '/#services')}
                   className="text-foreground hover:text-primary transition-colors text-lg"
                 >
                   Services
                 </Link>
                 <Link
                   to={'/#industries'}
-                  onClick={() => setOpen(false)}
+                  onClick={(e) => handleAnchorClick(e, '/#industries')}
                   className="text-foreground hover:text-primary transition-colors text-lg"
                 >
                   Industries
                 </Link>
                 <Link
                   to={'/#partners'}
-                  onClick={() => setOpen(false)}
+                  onClick={(e) => handleAnchorClick(e, '/#partners')}
                   className="text-foreground hover:text-primary transition-colors text-lg"
                 >
                   Partners
                 </Link>
                 <Link
                   to={'/#contact'}
-                  onClick={() => setOpen(false)}
+                  onClick={(e) => handleAnchorClick(e, '/#contact')}
                   className="text-foreground hover:text-primary transition-colors text-lg"
                 >
                   Contact
