@@ -2,7 +2,7 @@ import { Toaster } from '@/components/ui/toaster';
 import { Toaster as Sonner } from '@/components/ui/sonner';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import React, { Suspense } from 'react';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
 import { ROUTES } from '@/routes';
@@ -26,12 +26,39 @@ const Privacy = React.lazy(() => import('./pages/Privacy'));
 const Terms = React.lazy(() => import('./pages/Terms'));
 const CookiePolicy = React.lazy(() => import('./pages/CookiePolicy'));
 
+// Scroll helper: scroll to element matching hash after navigation
+function ScrollToHash() {
+  const { hash, pathname } = useLocation();
+
+  React.useEffect(() => {
+    if (hash) {
+      const id = hash.replace('#', '');
+      // small timeout to ensure element is mounted
+      setTimeout(() => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+        } else {
+          // fallback to top
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      }, 50);
+    } else {
+      // when navigating to a new page without hash, scroll to top
+      window.scrollTo({ top: 0 });
+    }
+  }, [hash, pathname]);
+
+  return null;
+}
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToHash />
         <ErrorBoundary>
           <Suspense fallback={<div className="p-8 text-center">Loading...</div>}>
             <Routes>
