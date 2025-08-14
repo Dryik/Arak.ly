@@ -1,10 +1,11 @@
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
 import { Menu } from 'lucide-react';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink, Link, useLocation } from 'react-router-dom';
 
 export const Header = () => {
   const [open, setOpen] = useState(false);
+  const location = useLocation();
   // Scroll to contact section
   const handleGetQuote = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -32,56 +33,46 @@ export const Header = () => {
           </div>
 
           <nav className="hidden md:flex items-center space-x-8">
-            <NavLink
-              to="#about"
-              className={({ isActive }) =>
-                `text-foreground hover:text-primary transition-colors ${
-                  isActive ? 'text-primary' : ''
-                }`
-              }
+            <Link
+              to={'/#about'}
+              className={`text-foreground hover:text-primary transition-colors ${
+                location.hash === '#about' ? 'text-primary' : ''
+              }`}
             >
               About
-            </NavLink>
-            <NavLink
-              to="#services"
-              className={({ isActive }) =>
-                `text-foreground hover:text-primary transition-colors ${
-                  isActive ? 'text-primary' : ''
-                }`
-              }
+            </Link>
+            <Link
+              to={'/#services'}
+              className={`text-foreground hover:text-primary transition-colors ${
+                location.hash === '#services' ? 'text-primary' : ''
+              }`}
             >
               Services
-            </NavLink>
-            <NavLink
-              to="#industries"
-              className={({ isActive }) =>
-                `text-foreground hover:text-primary transition-colors ${
-                  isActive ? 'text-primary' : ''
-                }`
-              }
+            </Link>
+            <Link
+              to={'/#industries'}
+              className={`text-foreground hover:text-primary transition-colors ${
+                location.hash === '#industries' ? 'text-primary' : ''
+              }`}
             >
               Industries
-            </NavLink>
-            <NavLink
-              to="#partners"
-              className={({ isActive }) =>
-                `text-foreground hover:text-primary transition-colors ${
-                  isActive ? 'text-primary' : ''
-                }`
-              }
+            </Link>
+            <Link
+              to={'/#partners'}
+              className={`text-foreground hover:text-primary transition-colors ${
+                location.hash === '#partners' ? 'text-primary' : ''
+              }`}
             >
               Partners
-            </NavLink>
-            <NavLink
-              to="#contact"
-              className={({ isActive }) =>
-                `text-foreground hover:text-primary transition-colors ${
-                  isActive ? 'text-primary' : ''
-                }`
-              }
+            </Link>
+            <Link
+              to={'/#contact'}
+              className={`text-foreground hover:text-primary transition-colors ${
+                location.hash === '#contact' ? 'text-primary' : ''
+              }`}
             >
               Contact
-            </NavLink>
+            </Link>
           </nav>
 
           <div className="flex items-center space-x-4">
@@ -121,49 +112,49 @@ export const Header = () => {
               aria-modal="true"
             >
               <nav className="flex flex-col gap-4 mt-2">
-                <a
-                  href="#about"
+                <Link
+                  to={'/#about'}
                   onClick={() => setOpen(false)}
                   className="text-foreground hover:text-primary transition-colors text-lg"
                 >
                   About
-                </a>
-                <a
-                  href="#services"
+                </Link>
+                <Link
+                  to={'/#services'}
                   onClick={() => setOpen(false)}
                   className="text-foreground hover:text-primary transition-colors text-lg"
                 >
                   Services
-                </a>
-                <a
-                  href="#industries"
+                </Link>
+                <Link
+                  to={'/#industries'}
                   onClick={() => setOpen(false)}
                   className="text-foreground hover:text-primary transition-colors text-lg"
                 >
                   Industries
-                </a>
-                <a
-                  href="#partners"
+                </Link>
+                <Link
+                  to={'/#partners'}
                   onClick={() => setOpen(false)}
                   className="text-foreground hover:text-primary transition-colors text-lg"
                 >
                   Partners
-                </a>
-                <a
-                  href="#contact"
+                </Link>
+                <Link
+                  to={'/#contact'}
                   onClick={() => setOpen(false)}
                   className="text-foreground hover:text-primary transition-colors text-lg"
                 >
                   Contact
-                </a>
+                </Link>
                 <div className="flex flex-col gap-4 mt-8">
-                  <a
-                    href="/ar"
+                  <Link
+                    to="/ar"
                     onClick={() => setOpen(false)}
                     className="text-sm text-foreground hover:text-primary transition-colors"
                   >
                     العربية
-                  </a>
+                  </Link>
                   <Button variant="outline">Get Quote</Button>
                   <Button
                     asChild

@@ -1,10 +1,11 @@
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
 import { Menu } from 'lucide-react';
-import { NavLink, Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 export const HeaderAr = () => {
   const [open, setOpen] = useState(false);
+  const location = useLocation();
   return (
     <>
       <a
@@ -28,56 +29,46 @@ export const HeaderAr = () => {
           </div>
 
           <nav className="hidden md:flex items-center space-x-8 space-x-reverse">
-            <NavLink
-              to="#about"
-              className={({ isActive }) =>
-                `text-foreground hover:text-primary transition-colors ${
-                  isActive ? 'text-primary' : ''
-                }`
-              }
+            <Link
+              to={'/ar#about'}
+              className={`text-foreground hover:text-primary transition-colors ${
+                location.hash === '#about' ? 'text-primary' : ''
+              }`}
             >
               من نحن
-            </NavLink>
-            <NavLink
-              to="#services"
-              className={({ isActive }) =>
-                `text-foreground hover:text-primary transition-colors ${
-                  isActive ? 'text-primary' : ''
-                }`
-              }
+            </Link>
+            <Link
+              to={'/ar#services'}
+              className={`text-foreground hover:text-primary transition-colors ${
+                location.hash === '#services' ? 'text-primary' : ''
+              }`}
             >
               خدماتنا
-            </NavLink>
-            <NavLink
-              to="#industries"
-              className={({ isActive }) =>
-                `text-foreground hover:text-primary transition-colors ${
-                  isActive ? 'text-primary' : ''
-                }`
-              }
+            </Link>
+            <Link
+              to={'/ar#industries'}
+              className={`text-foreground hover:text-primary transition-colors ${
+                location.hash === '#industries' ? 'text-primary' : ''
+              }`}
             >
               القطاعات
-            </NavLink>
-            <NavLink
-              to="#partners"
-              className={({ isActive }) =>
-                `text-foreground hover:text-primary transition-colors ${
-                  isActive ? 'text-primary' : ''
-                }`
-              }
+            </Link>
+            <Link
+              to={'/ar#partners'}
+              className={`text-foreground hover:text-primary transition-colors ${
+                location.hash === '#partners' ? 'text-primary' : ''
+              }`}
             >
               شركاؤنا
-            </NavLink>
-            <NavLink
-              to="#contact"
-              className={({ isActive }) =>
-                `text-foreground hover:text-primary transition-colors ${
-                  isActive ? 'text-primary' : ''
-                }`
-              }
+            </Link>
+            <Link
+              to={'/ar#contact'}
+              className={`text-foreground hover:text-primary transition-colors ${
+                location.hash === '#contact' ? 'text-primary' : ''
+              }`}
             >
               اتصل بنا
-            </NavLink>
+            </Link>
           </nav>
 
           <div className="flex items-center space-x-4 space-x-reverse">
@@ -119,49 +110,49 @@ export const HeaderAr = () => {
               dir="rtl"
             >
               <nav className="flex flex-col gap-4 mt-2">
-                <a
-                  href="#about"
+                <Link
+                  to={'/ar#about'}
                   onClick={() => setOpen(false)}
                   className="text-foreground hover:text-primary transition-colors text-lg"
                 >
                   من نحن
-                </a>
-                <a
-                  href="#services"
+                </Link>
+                <Link
+                  to={'/ar#services'}
                   onClick={() => setOpen(false)}
                   className="text-foreground hover:text-primary transition-colors text-lg"
                 >
                   خدماتنا
-                </a>
-                <a
-                  href="#industries"
+                </Link>
+                <Link
+                  to={'/ar#industries'}
                   onClick={() => setOpen(false)}
                   className="text-foreground hover:text-primary transition-colors text-lg"
                 >
                   القطاعات
-                </a>
-                <a
-                  href="#partners"
+                </Link>
+                <Link
+                  to={'/ar#partners'}
                   onClick={() => setOpen(false)}
                   className="text-foreground hover:text-primary transition-colors text-lg"
                 >
                   شركاؤنا
-                </a>
-                <a
-                  href="#contact"
+                </Link>
+                <Link
+                  to={'/ar#contact'}
                   onClick={() => setOpen(false)}
                   className="text-foreground hover:text-primary transition-colors text-lg"
                 >
                   اتصل بنا
-                </a>
+                </Link>
                 <div className="flex flex-col gap-4 mt-8">
-                  <a
-                    href="/"
+                  <Link
+                    to="/"
                     onClick={() => setOpen(false)}
                     className="text-sm text-foreground hover:text-primary transition-colors"
                   >
                     English
-                  </a>
+                  </Link>
                   <Button variant="outline">احصل على عرض سعر</Button>
                   <Button
                     asChild
