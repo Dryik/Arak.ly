@@ -1,12 +1,12 @@
-import { Button } from "@/components/ui/button";
-import { ArrowRight, Shield, Zap, Users } from "lucide-react";
+import { Button } from '@/components/ui/button';
+import { ArrowRight, Shield, Zap, Users } from 'lucide-react';
 
 export const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center pt-16">
       {/* Background Gradient */}
       <div className="absolute inset-0 bg-gradient-hero opacity-5 pointer-events-none"></div>
-      
+
       <div className="container mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">
         {/* Content */}
         <div className="space-y-8 animate-fade-in">
@@ -15,21 +15,29 @@ export const HeroSection = () => {
               <Zap className="h-4 w-4 mr-2" />
               Libya's Leading IT Partner
             </div>
-            
-            <h1 className="text-4xl md:text-6xl font-bold text-foreground leading-tight">
-              Full Communication & 
-              <span className="text-transparent bg-clip-text bg-gradient-primary"> IT Services</span>
-              <br />in Libya
-            </h1>
-            
+
+            <h3 className="text-4xl md:text-6xl font-bold text-foreground leading-tight">
+              <span className="text-arak-blue">ARAK</span> Communication &
+              <span className="text-transparent bg-clip-text bg-gradient-primary">
+                {' '}
+                IT Services
+              </span>
+            </h3>
+
             <p className="text-xl text-muted-foreground max-w-2xl">
-              ARAK delivers enterprise-grade Managed Services, Infrastructure, and Cybersecurity solutions. 
-              Focus on your business while we handle all things IT with 99.9999% uptime guarantee.
+              ARAK delivers enterprise-grade Managed Services, Infrastructure, and Cybersecurity
+              solutions. Focus on your business while we handle all things IT with 99.999% uptime
+              guarantee.
             </p>
           </div>
-          
+
           <div className="flex flex-col sm:flex-row gap-4">
-            <Button asChild size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+            >
               <a
                 href="#services"
                 className="inline-flex items-center"
@@ -38,8 +46,8 @@ export const HeroSection = () => {
                   const el = document.getElementById('services');
                   if (el) {
                     const y = el.getBoundingClientRect().top + window.scrollY - 80;
-                    window.history.pushState(null, "", "#services");
-                    window.scrollTo({ top: y, behavior: "smooth" });
+                    window.history.pushState(null, '', '#services');
+                    window.scrollTo({ top: y, behavior: 'smooth' });
                   }
                 }}
                 aria-label="View our services section"
@@ -48,11 +56,11 @@ export const HeroSection = () => {
               </a>
             </Button>
           </div>
-          
+
           {/* Stats */}
           <div className="grid grid-cols-3 gap-6 pt-8 border-t border-border">
             <div className="text-center">
-              <div className="text-2xl font-bold text-primary">99.9999%</div>
+              <div className="text-2xl font-bold text-primary">99.999%</div>
               <div className="text-sm text-muted-foreground">Uptime Guarantee</div>
             </div>
             <div className="text-center">
@@ -65,7 +73,7 @@ export const HeroSection = () => {
             </div>
           </div>
         </div>
-        
+
         {/* Visual Element */}
         <div className="relative">
           <div className="relative bg-gradient-card rounded-2xl p-8 shadow-elevated">
@@ -92,7 +100,7 @@ export const HeroSection = () => {
               </div>
             </div>
           </div>
-          
+
           {/* Floating Elements */}
           <div className="absolute -top-4 -right-4 bg-primary text-primary-foreground rounded-full p-4 shadow-arak animate-pulse">
             <Shield className="h-6 w-6" />

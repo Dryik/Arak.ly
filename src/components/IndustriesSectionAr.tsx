@@ -1,43 +1,55 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowLeft, Heart, Banknote, GraduationCap, Building, Building2 } from "lucide-react";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { ArrowLeft, Heart, Banknote, GraduationCap, Building, Building2 } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { ROUTES } from '@/routes';
 
 export const IndustriesSectionAr = () => {
   const industries = [
     {
       icon: Heart,
-      title: "الرعاية الصحية",
-      description: "حلول تكنولوجيا المعلومات المتخصصة للمستشفيات والعيادات ومقدمي الرعاية الصحية مع التركيز على الامتثال وأمان البيانات.",
-      color: "text-red-500",
-      bgColor: "bg-red-50"
+      title: 'الرعاية الصحية',
+      description:
+        'حلول تكنولوجيا المعلومات المتخصصة للمستشفيات والعيادات ومقدمي الرعاية الصحية مع التركيز على الامتثال وأمان البيانات.',
+      color: 'text-red-500',
+      bgColor: 'bg-red-50',
+      slug: 'healthcare',
     },
     {
       icon: Banknote,
-      title: "البنوك والتمويل",
-      description: "بنية تحتية آمنة وموثوقة للمؤسسات المالية مع الامتثال للوائح المصرفية ومعايير الأمان العالية.",
-      color: "text-green-500",
-      bgColor: "bg-green-50"
+      title: 'البنوك والتمويل',
+      description:
+        'بنية تحتية آمنة وموثوقة للمؤسسات المالية مع الامتثال للوائح المصرفية ومعايير الأمان العالية.',
+      color: 'text-green-500',
+      bgColor: 'bg-green-50',
+      slug: 'banking-finance',
     },
     {
       icon: GraduationCap,
-      title: "التعليم",
-      description: "حلول تقنية حديثة للجامعات والمدارس والمؤسسات التعليمية لتعزيز بيئة التعلم الرقمي.",
-      color: "text-blue-500",
-      bgColor: "bg-blue-50"
+      title: 'التعليم',
+      description:
+        'حلول تقنية حديثة للجامعات والمدارس والمؤسسات التعليمية لتعزيز بيئة التعلم الرقمي.',
+      color: 'text-blue-500',
+      bgColor: 'bg-blue-50',
+      slug: 'education',
     },
     {
       icon: Building,
-      title: "الحكومة",
-      description: "خدمات تكنولوجيا المعلومات للجهات الحكومية مع التركيز على الأمان والموثوقية والامتثال للمعايير الحكومية.",
-      color: "text-purple-500",
-      bgColor: "bg-purple-50"
+      title: 'الحكومة',
+      description:
+        'خدمات تكنولوجيا المعلومات للجهات الحكومية مع التركيز على الأمان والموثوقية والامتثال للمعايير الحكومية.',
+      color: 'text-purple-500',
+      bgColor: 'bg-purple-50',
+      slug: 'government',
     },
     {
       icon: Building2,
-      title: "القطاع الخاص والشركات الناشئة",
-      description: "حلول مرنة وقابلة للتوسع للشركات من جميع الأحجام، من الشركات الناشئة إلى المؤسسات الكبيرة.",
-      color: "text-orange-500",
-      bgColor: "bg-orange-50"
-    }
+      title: 'القطاع الخاص والشركات الناشئة',
+      description:
+        'حلول مرنة وقابلة للتوسع للشركات من جميع الأحجام، من الشركات الناشئة إلى المؤسسات الكبيرة.',
+      color: 'text-orange-500',
+      bgColor: 'bg-orange-50',
+      slug: 'private-sector',
+    },
   ];
 
   return (
@@ -51,27 +63,45 @@ export const IndustriesSectionAr = () => {
             نخصص عملنا لتلبية احتياجات كل قطاع، مما يضمن حلولاً مصممة خصيصاً لمتطلباتك الفريدة
           </p>
         </div>
-        
+
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {industries.map((industry, index) => (
-            <Card key={index} className="group hover:shadow-elevated transition-all duration-300 hover:-translate-y-1 border-border/50 hover:border-primary/20">
-              <CardHeader>
-                <div className={`w-12 h-12 rounded-lg ${industry.bgColor} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
-                  <industry.icon className={`h-6 w-6 ${industry.color}`} />
-                </div>
-                <CardTitle className="text-xl font-semibold">{industry.title}</CardTitle>
-                <CardDescription className="text-muted-foreground">{industry.description}</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="flex items-center text-primary hover:text-primary/80 transition-colors cursor-pointer">
-                  <span className="text-sm font-medium ml-2">اعرف المزيد</span>
-                  <ArrowLeft className="h-4 w-4" />
-                </div>
-              </CardContent>
-            </Card>
+          {industries.map((industry) => (
+            <Link
+              key={industry.slug}
+              to={
+                ROUTES.industriesAr[
+                  industry.slug === 'banking-finance'
+                    ? 'bankingFinance'
+                    : industry.slug === 'private-sector'
+                    ? 'privateSector'
+                    : industry.slug
+                ] as string
+              }
+              className="block"
+            >
+              <Card className="group hover:shadow-elevated transition-all duration-300 hover:-translate-y-1 border-border/50 hover:border-primary/20">
+                <CardHeader>
+                  <div
+                    className={`w-12 h-12 rounded-lg ${industry.bgColor} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}
+                  >
+                    <industry.icon className={`h-6 w-6 ${industry.color}`} />
+                  </div>
+                  <CardTitle className="text-xl font-semibold">{industry.title}</CardTitle>
+                  <CardDescription className="text-muted-foreground">
+                    {industry.description}
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex items-center text-primary hover:text-primary/80 transition-colors cursor-pointer">
+                    <span className="text-sm font-medium ml-2">اعرف المزيد</span>
+                    <ArrowLeft className="h-4 w-4" />
+                  </div>
+                </CardContent>
+              </Card>
+            </Link>
           ))}
         </div>
-        
+
         {/* Stats Section */}
         <div className="bg-gradient-card rounded-2xl p-8 shadow-elevated">
           <div className="text-center mb-8">
@@ -80,7 +110,7 @@ export const IndustriesSectionAr = () => {
               نحن نفهم التحديات الفريدة لكل قطاع ونقدم حلولاً مصممة خصيصاً لتلبية متطلباتك المحددة
             </p>
           </div>
-          
+
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="text-center">
               <div className="text-3xl font-bold text-primary mb-2">100%</div>

@@ -1,11 +1,11 @@
-import { HeaderAr } from "@/components/HeaderAr";
-import { HeroSectionAr } from "@/components/HeroSectionAr";
-import { AboutSectionAr } from "@/components/AboutSectionAr";
-import { ServicesSectionAr } from "@/components/ServicesSectionAr";
-import { IndustriesSectionAr } from "@/components/IndustriesSectionAr";
-import { PartnersSectionAr } from "@/components/PartnersSectionAr";
-import { ContactSectionAr } from "@/components/ContactSectionAr";
-import { FooterAr } from "@/components/FooterAr";
+import { HeaderAr } from '@/components/HeaderAr';
+import { HeroSectionAr } from '@/components/HeroSectionAr';
+import { AboutSectionAr } from '@/components/AboutSectionAr';
+import { ServicesSectionAr } from '@/components/ServicesSectionAr';
+import { IndustriesSectionAr } from '@/components/IndustriesSectionAr';
+import { PartnersSectionAr } from '@/components/PartnersSectionAr';
+import { ContactSectionAr } from '@/components/ContactSectionAr';
+import { FooterAr } from '@/components/FooterAr';
 
 const IndexAr = () => {
   return (
