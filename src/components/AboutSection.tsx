@@ -1,7 +1,17 @@
 import { Badge } from '@/components/ui/badge';
 import { CheckCircle, Award, Users, Zap } from 'lucide-react';
+import { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export const AboutSection = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+  const cardsRef = useRef<HTMLDivElement>(null);
+  const badgesRef = useRef<HTMLDivElement>(null);
+  
   const badges = [
     { icon: CheckCircle, text: 'ISO Certified' },
     { icon: Award, text: 'Certified Engineers' },
@@ -9,11 +19,71 @@ export const AboutSection = () => {
     { icon: Zap, text: '24/7 Operations' },
   ];
 
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Animate main content on scroll
+      gsap.fromTo(
+        contentRef.current,
+        { x: -50, opacity: 0 },
+        {
+          x: 0,
+          opacity: 1,
+          duration: 1,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 80%",
+            end: "bottom 20%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+
+      // Animate badges with stagger
+      gsap.fromTo(
+        badgesRef.current?.children || [],
+        { y: 20, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.6,
+          stagger: 0.1,
+          ease: "back.out(1.7)",
+          scrollTrigger: {
+            trigger: badgesRef.current,
+            start: "top 85%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+
+      // Animate right side cards
+      gsap.fromTo(
+        cardsRef.current?.children || [],
+        { x: 50, opacity: 0 },
+        {
+          x: 0,
+          opacity: 1,
+          duration: 1,
+          stagger: 0.2,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: cardsRef.current,
+            start: "top 80%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section id="about" className="py-20 bg-gradient-card">
+    <section ref={sectionRef} id="about" className="py-20 bg-gradient-card">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6 animate-fade-in">
+          <div ref={contentRef} className="space-y-6">
             <div className="space-y-4">
               <h2 className="text-3xl md:text-4xl font-bold text-foreground">
                 Why Choose{' '}
@@ -27,7 +97,7 @@ export const AboutSection = () => {
               </p>
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
+            <div ref={badgesRef} className="grid grid-cols-2 gap-4">
               {badges.map((badge, index) => (
                 <Badge
                   key={index}
@@ -41,7 +111,7 @@ export const AboutSection = () => {
             </div>
           </div>
 
-          <div className="space-y-6">
+          <div ref={cardsRef} className="space-y-6">
             <div className="bg-background rounded-2xl p-6 shadow-card-arak border border-border">
               <h3 className="text-xl font-semibold text-foreground mb-4">Our Commitment</h3>
               <div className="space-y-4">

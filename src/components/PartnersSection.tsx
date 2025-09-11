@@ -1,4 +1,14 @@
+import { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
+
 export const PartnersSection = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
+  const partnersGridRef = useRef<HTMLDivElement>(null);
+  const statsRef = useRef<HTMLDivElement>(null);
   const partners = [
     {
       name: 'HPE',
@@ -50,10 +60,87 @@ export const PartnersSection = () => {
     },
   ];
 
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Animate header
+      gsap.fromTo(
+        headerRef.current,
+        { y: 30, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 80%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+
+      // Animate partner logos with stagger
+      gsap.fromTo(
+        partnersGridRef.current?.children || [],
+        { y: 30, opacity: 0, scale: 0.8 },
+        {
+          y: 0,
+          opacity: 1,
+          scale: 1,
+          duration: 0.6,
+          stagger: 0.1,
+          ease: "back.out(1.7)",
+          scrollTrigger: {
+            trigger: partnersGridRef.current,
+            start: "top 85%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+
+      // Animate stats section
+      gsap.fromTo(
+        statsRef.current,
+        { y: 50, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: statsRef.current,
+            start: "top 85%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+
+      // Animate individual stats with stagger
+      gsap.fromTo(
+        statsRef.current?.querySelectorAll('.stat-item') || [],
+        { scale: 0.8, opacity: 0 },
+        {
+          scale: 1,
+          opacity: 1,
+          duration: 0.5,
+          stagger: 0.1,
+          ease: "back.out(1.7)",
+          scrollTrigger: {
+            trigger: statsRef.current,
+            start: "top 80%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section id="partners" className="py-20 bg-background">
+    <section ref={sectionRef} id="partners" className="py-20 bg-background">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16 space-y-4">
+        <div ref={headerRef} className="text-center mb-16 space-y-4">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground">
             Trusted{' '}
             <span className="text-transparent bg-clip-text bg-gradient-primary">
@@ -66,7 +153,7 @@ export const PartnersSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
+        <div ref={partnersGridRef} className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
           {partners.map((partner, index) => (
             <div
               key={index}
@@ -86,26 +173,26 @@ export const PartnersSection = () => {
           ))}
         </div>
 
-        <div className="bg-gradient-primary rounded-2xl p-8 text-center text-primary-foreground">
+        <div ref={statsRef} className="bg-gradient-primary rounded-2xl p-8 text-center text-primary-foreground">
           <h3 className="text-2xl font-bold mb-4">Certified Excellence</h3>
           <p className="text-primary-foreground/90 max-w-2xl mx-auto mb-6">
             Our engineering team holds multiple certifications from leading technology vendors,
             ensuring expert deployment, optimization, and support for your IT infrastructure.
           </p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <div className="text-center">
+            <div className="text-center stat-item">
               <div className="text-2xl font-bold text-primary-foreground">50+</div>
               <div className="text-sm text-primary-foreground/80">Certifications</div>
             </div>
-            <div className="text-center">
+            <div className="text-center stat-item">
               <div className="text-2xl font-bold text-primary-foreground">8+</div>
               <div className="text-sm text-primary-foreground/80">Vendor Partners</div>
             </div>
-            <div className="text-center">
+            <div className="text-center stat-item">
               <div className="text-2xl font-bold text-primary-foreground">10+</div>
               <div className="text-sm text-primary-foreground/80">Years Experience</div>
             </div>
-            <div className="text-center">
+            <div className="text-center stat-item">
               <div className="text-2xl font-bold text-primary-foreground">100%</div>
               <div className="text-sm text-primary-foreground/80">Genuine Products</div>
             </div>

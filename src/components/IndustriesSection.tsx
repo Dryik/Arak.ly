@@ -2,8 +2,16 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Heart, Building2, GraduationCap, Landmark, Users, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { ROUTES } from '@/routes';
+import { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export const IndustriesSection = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
+  const gridRef = useRef<HTMLDivElement>(null);
   const industries = [
     {
       icon: Heart,
@@ -52,10 +60,52 @@ export const IndustriesSection = () => {
     },
   ];
 
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Animate header
+      gsap.fromTo(
+        headerRef.current,
+        { y: 30, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 80%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+
+      // Animate industry cards with stagger and hover effect
+      gsap.fromTo(
+        gridRef.current?.children || [],
+        { y: 50, opacity: 0, rotationY: 15 },
+        {
+          y: 0,
+          opacity: 1,
+          rotationY: 0,
+          duration: 0.8,
+          stagger: 0.15,
+          ease: "back.out(1.7)",
+          scrollTrigger: {
+            trigger: gridRef.current,
+            start: "top 85%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section id="industries" className="py-20 bg-gradient-card">
+    <section ref={sectionRef} id="industries" className="py-20 bg-gradient-card">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16 space-y-4">
+        <div ref={headerRef} className="text-center mb-16 space-y-4">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground">
             Industries We{' '}
             <span className="text-transparent bg-clip-text bg-gradient-primary">Serve</span>
@@ -66,7 +116,7 @@ export const IndustriesSection = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div ref={gridRef} className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {industries.map((industry) => (
             <Link
               key={industry.slug}
